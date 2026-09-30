@@ -44,7 +44,7 @@ This project builds and compares forecasting models on Kenyan market prices, the
 
 | Source | What it provides | Access |
 |---|---|---|
-| **WFP Kenya Food Prices** via the [Humanitarian Data Exchange (HDX)](https://data.humdata.org/dataset/wfp-food-prices-for-kenya) | Market-level retail prices by commodity and date, from 2006 onwards | Public, Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO) licence, updated monthly |
+| **WFP Kenya Food Prices** via the [Humanitarian Data Exchange (HDX)](https://data.humdata.org/dataset/wfp-food-prices-for-kenya) | Market-level retail prices by commodity and date, from 2006 onwards | Public |
 
 
 **Data selection:** The WFP dataset has uneven coverage across markets and commodities. Markets and the primary commodity are therefore chosen **after a coverage audit**, keeping only series with long, mostly complete histories. Gaps are documented and handled explicitly (see the data-cleaning notebook) rather than filled silently.
@@ -85,6 +85,3 @@ Model families are compared under identical data splits and metrics.
 
 - Project completed as a capstone at **Zindua School**.
 
-## License
-
-Code: _choose a licence, e.g. MIT_. Data remains subject to the licences of its original providers.
