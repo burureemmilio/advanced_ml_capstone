@@ -83,5 +83,5 @@ Model families are compared under identical data splits and metrics.
 
 **Main libraries:** pandas, NumPy, scikit-learn, statsmodels, arch, Prophet, TensorFlow/Keras , matplotlib, seaborn.
 
-- Project completed as a capstone at **Zindua School**.
+
 
