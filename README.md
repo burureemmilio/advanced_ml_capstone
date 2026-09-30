@@ -2,24 +2,10 @@
 
 > Can a neural network give Kenyan households, farmers and planners an earlier warning of food price spikes than simpler statistical models? This project tests that question honestly, using open market price data.
 
-**Author:** _Your Name_ · **Programme:** Zindua School, Data Science · **Date:** _Month Year_
+
 
 ---
 
-## Table of Contents
-
-1. [Problem Statement](#problem-statement)
-2. [Who Is Affected](#who-is-affected)
-3. [Objectives](#objectives)
-4. [Data](#data)
-5. [Approach](#approach)
-6. [Models](#models)
-7. [Evaluation](#evaluation)
-8. [Repository Structure](#repository-structure)
-9. [How to Run](#how-to-run)
-10. [Results](#results)
-11. [Limitations](#limitations)
-12. [Acknowledgements and Data Attribution](#acknowledgements-and-data-attribution)
 
 ---
 
@@ -59,8 +45,7 @@ This project builds and compares forecasting models on Kenyan market prices, the
 | Source | What it provides | Access |
 |---|---|---|
 | **WFP Kenya Food Prices** via the [Humanitarian Data Exchange (HDX)](https://data.humdata.org/dataset/wfp-food-prices-for-kenya) | Market-level retail prices by commodity and date, from 2006 onwards | Public, Creative Commons Attribution for Intergovernmental Organisations (CC BY-IGO) licence, updated monthly |
-| **CHIRPS** rainfall (optional) | Satellite-based rainfall estimates for exogenous features | Free download |
-| **EPRA** fuel prices (optional) | Pump prices as a transport-cost proxy | Public reports |
+
 
 **Data selection:** The WFP dataset has uneven coverage across markets and commodities. Markets and the primary commodity are therefore chosen **after a coverage audit**, keeping only series with long, mostly complete histories. Gaps are documented and handled explicitly (see the data-cleaning notebook) rather than filled silently.
 
@@ -95,73 +80,9 @@ Model families are compared under identical data splits and metrics.
 - **Early-warning quality:** precision, recall and F1 for spike alerts, with attention to missed spikes, since a missed warning is costlier than a false alarm
 - **Statistical comparison:** a significance test on forecast errors between top models (for example, Diebold-Mariano), so that small gaps are not over-interpreted
 
-## Repository Structure
 
-```
-kenya-food-price-forecasting/
-├── data/
-│   ├── raw/                 # Original downloads (not modified)
-│   └── processed/           # Cleaned monthly series
-├── notebooks/
-│   ├── 01_data_audit_and_cleaning.ipynb
-│   ├── 02_exploratory_analysis.ipynb
-│   ├── 03_baselines.ipynb
-│   ├── 04_prophet.ipynb
-│   ├── 05_garch_volatility.ipynb
-│   ├── 06_lstm_gru.ipynb
-│   ├── 07_model_comparison.ipynb
-│   └── 08_early_warning.ipynb
-├── src/                     # Reusable functions (loading, validation, metrics)
-├── reports/figures/         # Saved charts
-├── requirements.txt
-└── README.md
-```
+**Main libraries:** pandas, NumPy, scikit-learn, statsmodels, arch, Prophet, TensorFlow/Keras , matplotlib, seaborn.
 
-## How to Run
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/<your-username>/kenya-food-price-forecasting.git
-cd kenya-food-price-forecasting
-
-# 2. Create an environment and install dependencies
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-
-# 3. Download the WFP Kenya food prices CSV from HDX into data/raw/
-#    https://data.humdata.org/dataset/wfp-food-prices-for-kenya
-
-# 4. Run the notebooks in order (01 to 08)
-```
-
-**Main libraries:** pandas, NumPy, scikit-learn, statsmodels, arch, Prophet, TensorFlow/Keras (or PyTorch), matplotlib, seaborn.
-
-## Results
-
-_To be completed after modelling._
-
-| Model | 1-month RMSE | 3-month RMSE | MASE vs seasonal naive |
-|---|---|---|---|
-| Naive | | | |
-| Seasonal naive | | | 1.00 |
-| Prophet | | | |
-| LSTM / GRU | | | |
-
-**Key findings:** _Summarise which model performed best, whether rainfall helped, and how the early-warning alert performed._
-
-## Limitations
-
-- Retail price data is reported monthly and covers only the markets WFP monitors, so it may not represent all Kenyan regions.
-- Some series contain gaps; results depend on how these are handled.
-- A few hundred monthly observations per series limit what neural networks can learn, so they may not beat simpler models.
-- Forecasts cannot anticipate shocks that have no precedent in the historical data.
-- This is an academic project and **not** an operational forecasting service.
-
-## Acknowledgements and Data Attribution
-
-- Price data: **World Food Programme (WFP)**, distributed via the **Humanitarian Data Exchange (HDX)** under the CC BY-IGO licence. Please cite WFP and HDX when reusing it.
-- Rainfall data (if used): **Climate Hazards Group, CHIRPS**.
 - Project completed as a capstone at **Zindua School**.
 
 ## License
