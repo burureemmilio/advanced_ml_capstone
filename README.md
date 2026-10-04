@@ -8,28 +8,7 @@
 **Programme:** Zindua School — Data Science  
 **Project Type:** Machine Learning Capstone
 
----
 
-## Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Problem Statement](#problem-statement)
-3. [Research Questions](#research-questions)
-4. [Objectives](#objectives)
-5. [Data](#data)
-6. [Data Selection](#data-selection)
-7. [Exploratory Data Analysis](#exploratory-data-analysis)
-8. [Machine Learning Approach](#machine-learning-approach)
-9. [LSTM Model](#lstm-model)
-10. [Price Spike Early Warning](#price-spike-early-warning)
-11. [Evaluation](#evaluation)
-12. [Repository Structure](#repository-structure)
-13. [Technologies Used](#technologies-used)
-14. [Limitations](#limitations)
-15. [Future Improvements](#future-improvements)
-16. [Acknowledgements](#acknowledgements)
-
----
 
 ## Project Overview
 
@@ -132,73 +111,3 @@ The primary dataset is the:
 
 The dataset contains historical food prices recorded across markets in Kenya.
 
-The original dataset contains information including:
-
-- Date
-- Administrative region
-- Market
-- Market ID
-- Latitude
-- Longitude
-- Commodity
-- Commodity ID
-- Unit
-- Price type
-- Currency
-- Price
-- USD price
-
----
-
-## Data Selection
-
-The original dataset contains many commodities, markets, units, and price types.
-
-To create a consistent time-series dataset, the project focuses on:
-
-| Variable | Selection |
-|---|---|
-| Commodity | Maize (white) |
-| Unit | KG |
-| Price Type | Retail |
-| Currency | KES |
-| Price Flag | Actual |
-
-After filtering and performing a market coverage analysis, four markets with relatively long historical records were selected:
-
-- **Kitui**
-- **Mandera**
-- **Lodwar (Turkana)**
-- **Marsabit**
-
-The selected dataset contains approximately **707 monthly observations** across the four markets.
-
----
-
-## Data Cleaning
-
-The data preparation process includes:
-
-1. Inspecting the original dataset.
-2. Checking data types.
-3. Checking missing values.
-4. Checking duplicate records.
-5. Selecting the required commodity.
-6. Standardising the unit to KG.
-7. Selecting retail prices.
-8. Converting dates to datetime format.
-9. Sorting observations chronologically by market.
-10. Checking monthly coverage.
-11. Investigating missing months.
-12. Checking price values for invalid observations.
-13. Verifying currency and price flags.
-14. Creating the final clean dataset.
-
-Missing months are documented rather than blindly replacing prices with the mean.
-
-The final cleaned dataset contains:
-
-```text
-date
-market
-price
